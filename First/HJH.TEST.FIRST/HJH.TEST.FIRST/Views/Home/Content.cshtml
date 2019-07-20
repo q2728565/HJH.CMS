@@ -1,0 +1,38 @@
+﻿@model HJH.TEST.FIRST.MODEL.ContentViewModel
+@using Humanizer;
+@{
+    ViewData["Title"] = "Content";
+}
+
+
+<div class="panel panel-default todo-panel">
+    <div class="panel-heading">@ViewData["Title"]</div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>
+                    <input type="checkbox" name="check" class="done-checkbox" />
+                </td>
+                <td>序号</td>
+                <td>标题</td>
+                <td>内容</td>
+                <td>创建时间</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.content_list)
+            {
+                <tr>
+                    <td>
+                        <input type="checkbox" name="check" class="done-checkbox" />
+                    </td>
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>@item.Text</td>
+                    <td>@item.CreateTime.Humanize()</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
